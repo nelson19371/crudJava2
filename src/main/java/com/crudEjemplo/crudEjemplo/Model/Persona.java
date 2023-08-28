@@ -9,13 +9,13 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     @Column
     private String name;
     @Column
     private String apellidos;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

@@ -32,5 +32,17 @@ public class PersonaController {
         return new ResponseEntity<>(personaGuardada, HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PutMapping(value = "/update/{id}")
+    public String updateTask(@PathVariable long id, @RequestBody Persona persona) {
+        Persona updatePersona = personaInterface.findById(id).get();
+        updatePersona.setName(persona.getName());
+        updatePersona.setApellidos(persona.getApellidos());
+        personaInterface.save(updatePersona);
+        return "Updated Persona";
+    }
+
+
+
 
 }
